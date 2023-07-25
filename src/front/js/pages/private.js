@@ -14,7 +14,6 @@ export const Private = () => {
         }
         if (!storageUSer && user === null) {
             actions.getUser();
-
         }
 
     }, [user, store.user])
@@ -22,7 +21,7 @@ export const Private = () => {
 
     return (
         <>
-            {user !== null ? `hola ${user.email}` : <></> }
+            {user !== null ? `hello ${user.email}` : <></> }
 
         </>
 

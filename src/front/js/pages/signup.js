@@ -1,9 +1,6 @@
 import React, {  useState } from "react";
-
 import { useForm } from "../hooks/useform";
 import { Link, useNavigate } from "react-router-dom";
-
-
 
 
 export const SingUp = () => {
@@ -36,7 +33,7 @@ const createUser = async (event) => {
         password2: password2 === "" || password !== password2
     });
     if (password !== password2) {
-        alert("Las contraseñas no coinciden.");
+        alert("The passwords don't match!!!");
         return;
     }
     if (
@@ -45,7 +42,7 @@ const createUser = async (event) => {
         password2 !== ''
     ){
        try {
-         const response = await fetch('https://manolos05-didactic-fishstick-66554vpxgjpfr4wp-3001.preview.app.github.dev/signup',{
+         const response = await fetch('https://sanghmitra2023-supreme-succotash-pj75xj4j9p4h7w96-3001.preview.app.github.dev/signup',{
             method: 'POST',
             body: JSON.stringify({
                 email: email,
