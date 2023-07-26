@@ -25,7 +25,7 @@ def create_user():
     if not email or not password:
         return jsonify({ "msg": "No password or email present." }), 400
     
-    new_user = User(password=password, email=email)
+    new_user = User(email=email, password=password)
     db.session.add(new_user)
     db.session.commit()
 
@@ -39,7 +39,7 @@ def create_token():
     email = request.json.get("email", None)
     password = request.json.get("password", None)
     # Query your database for email and password
-    user = User.query.filter_by(email=email, password=get_hash(password)).first()
+    user = User.query.filter_by(email=email, password=password).first()
     if user is None:
         # the user was not found on the database
         return jsonify({"msg": "Bad email or password"}), 401
